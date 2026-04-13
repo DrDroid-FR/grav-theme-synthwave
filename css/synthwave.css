@@ -89,13 +89,13 @@ a:hover {
     transparent 100%
   );
   background-size: 200% 100%;
-  background-position: -100% 0;
+  background-position: 100% 0;
   animation: scanline 3s linear infinite;
 }
 
 @keyframes scanline {
   to {
-    background-position: 100% 0;
+    background-position: -100% 0;
   }
 }
 
