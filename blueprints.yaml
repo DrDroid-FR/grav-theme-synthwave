@@ -1,0 +1,111 @@
+name: Synthwave
+slug: synthwave
+type: theme
+version: 1.0.0
+description: Retro 80s Synthwave Theme
+icon: microchip
+author:
+  name: Dr Droid
+  email: gravdev@drdroid.fr
+  url: https://github.com/DrDroid-FR/
+homepage: https://github.com/DrDroid-FR/grav-theme-synthwave
+demo: https://drdroid.fr/synthwave
+keywords: synthwave, retro, 80s, neon, theme
+bugs: https://github.com/DrDroid-FR/grav-theme-synthwave/issues
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
+form:
+  validation: loose
+
+  fields:
+    production-mode:
+      type: toggle
+      label: Production Mode
+      help: Enable production mode for optimized loading
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    site_name:
+      type: text
+      label: Site Name
+      help: Override the site name displayed in the header (defaults to site.title)
+
+    logo_image:
+      type: toggle
+      label: Enable Logo Image
+      help: Use an image as the logo instead of text
+      highlight: 0
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    logo_image_file:
+      type: file
+      label: Logo Image File
+      help: Upload your logo image (SVG, PNG, etc.)
+      destination: 'theme://images'
+      accept:
+        - .svg
+        - .png
+        - .jpg
+        - .jpeg
+        - .gif
+
+    music-file:
+      type: file
+      label: Background Music
+      help: Select an MP3 file as background music
+      destination: 'theme://songs'
+      accept:
+        - .mp3
+        - .wav
+        - .ogg
+
+    hide-play-button:
+      type: toggle
+      label: Hide Play Button
+      help: Hide the music play button in the hero
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    enable-ajax:
+      type: toggle
+      label: Enable AJAX Navigation
+      help: Enable smooth page transitions without page reload - keeps music playing across pages
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    enable-vhs:
+      type: toggle
+      label: Enable VHS Effect
+      help: Add retro VHS glitch effect overlay
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    

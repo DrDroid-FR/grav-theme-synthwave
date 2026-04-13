@@ -1,0 +1,33 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block hero %}
+<div class="hero">
+    <div class="container">
+        <h1>{{ page.title }}</h1>
+        {% if page.header.subtitle %}
+        <p>{{ page.header.subtitle }}</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="blog-listing">
+    {% for child in page.children %}
+    <article class="blog-item">
+        <h2><a href="{{ child.url }}">{{ child.title }}</a></h2>
+        {% if child.header.summary %}
+        <p>{{ child.header.summary }}</p>
+        {% endif %}
+        <div class="blog-meta">
+            <span class="date">{{ child.date|date('Y-m-d') }}</span>
+            {% if child.taxonomy.category %}
+            <span class="category">{{ child.taxonomy.category|first }}</span>
+            {% endif %}
+        </div>
+    </article>
+    <div class="divider"></div>
+    {% endfor %}
+</div>
+{{ page.content|raw }}
+{% endblock %}

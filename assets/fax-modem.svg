@@ -1,0 +1,80 @@
+<svg width="900" height="72" viewBox="0 0 900 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retro 14400 fax modem style top bar">
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#bc13fe"/>
+      <stop offset="45%" stop-color="#d945ff"/>
+      <stop offset="100%" stop-color="#ff00ff"/>
+    </linearGradient>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.06"/>
+      </feComponentTransfer>
+    </filter>
+    <linearGradient id="bezel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00ffff"/>
+      <stop offset="100%" stop-color="#009999"/>
+    </linearGradient>
+    <linearGradient id="switchFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="switchShadow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#bc13fe"/>
+      <stop offset="100%" stop-color="#ff00ff"/>
+    </linearGradient>
+  </defs>
+  <rect x="1.5" y="1.5" width="897" height="69" rx="8" fill="url(#panel)" stroke="#ff00ff" stroke-width="3"/>
+  <rect x="1.5" y="1.5" width="897" height="69" rx="8" fill="#fff" opacity="0.06"/>
+  <rect x="1.5" y="1.5" width="897" height="69" rx="8" filter="url(#grain)" opacity="0.75"/>
+  <g transform="translate(58 14)">
+    <rect x="0" y="0" width="78" height="34" rx="2.5" fill="#0a0a0f" stroke="#00ffff" stroke-width="1.8"/>
+    <rect x="5" y="5" width="68" height="24" rx="2" fill="url(#switchShadow)" stroke="#bc13fe" stroke-width="1"/>
+    <path d="M7 7 H39 V27 H7 Z" fill="url(#switchFace)"/>
+    <path d="M39 7 H71 V27 H39 Z" fill="#1a1a2e"/>
+    <path d="M39 7 Q44 17 39 27" fill="#00ffff" opacity="0.5"/>
+    <text x="26" y="42" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#00ffff" text-anchor="middle">OFF</text>
+    <text x="56" y="42" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#00ffff" text-anchor="middle">ON</text>
+    <text x="25" y="22" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#ff00ff" text-anchor="middle">O</text>
+    <text x="56" y="22" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#00ffff" text-anchor="middle">I</text>
+  </g>
+  <g transform="translate(250 18)">
+    <g transform="translate(0 0)">
+      <rect x="0" y="0" width="30" height="18" rx="1.5" fill="#0a0a0f" stroke="#00ffff" stroke-width="0.8"/>
+      <rect x="3" y="3" width="24" height="12" rx="1" fill="#bc13fe" stroke="#ff00ff" stroke-width="0.5"/>
+      <text x="15" y="31" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#00ffff" text-anchor="middle">AA</text>
+    </g>
+    <g transform="translate(62 0)">
+      <rect x="0" y="0" width="30" height="18" rx="1.5" fill="#0a0a0f" stroke="#00ffff" stroke-width="0.8"/>
+      <rect x="3" y="3" width="24" height="12" rx="1" fill="#bc13fe" stroke="#ff00ff" stroke-width="0.5"/>
+      <text x="15" y="31" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#00ffff" text-anchor="middle">CD</text>
+    </g>
+    <g transform="translate(124 0)">
+      <rect x="0" y="0" width="30" height="18" rx="1.5" fill="#0a0a0f" stroke="#00ffff" stroke-width="0.8"/>
+      <rect x="3" y="3" width="24" height="12" rx="1" fill="#bc13fe" stroke="#ff00ff" stroke-width="0.5"/>
+      <text x="15" y="31" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#00ffff" text-anchor="middle">RD</text>
+    </g>
+    <g transform="translate(186 0)">
+      <rect x="0" y="0" width="30" height="18" rx="1.5" fill="#0a0a0f" stroke="#00ffff" stroke-width="0.8"/>
+      <rect x="3" y="3" width="24" height="12" rx="1" fill="#bc13fe" stroke="#ff00ff" stroke-width="0.5"/>
+      <text x="15" y="31" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#00ffff" text-anchor="middle">SD</text>
+    </g>
+    <g transform="translate(248 0)">
+      <rect x="0" y="0" width="30" height="18" rx="1.5" fill="#0a0a0f" stroke="#00ffff" stroke-width="0.8"/>
+      <rect x="3" y="3" width="24" height="12" rx="1" fill="#bc13fe" stroke="#ff00ff" stroke-width="0.5"/>
+      <text x="15" y="31" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#00ffff" text-anchor="middle">TR</text>
+    </g>
+    <g transform="translate(330 0)">
+      <rect x="0" y="0" width="30" height="18" rx="1.5" fill="#0a0a0f" stroke="#00ffff" stroke-width="0.8"/>
+      <rect x="3" y="3" width="24" height="12" rx="1" fill="#bc13fe" stroke="#ff00ff" stroke-width="0.5"/>
+      <text x="15" y="31" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#00ffff" text-anchor="middle">CS</text>
+    </g>
+    <g transform="translate(392 0)">
+      <rect x="0" y="0" width="30" height="18" rx="1.5" fill="#0a0a0f" stroke="#00ffff" stroke-width="0.8"/>
+      <rect x="3" y="3" width="24" height="12" rx="1" fill="#bc13fe" stroke="#ff00ff" stroke-width="0.5"/>
+      <text x="15" y="31" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#00ffff" text-anchor="middle">FAX</text>
+      <text x="150" y="31" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#00ffff" text-anchor="middle">14400 Bauds Modem</text>
+    </g>
+  </g>
+</svg>

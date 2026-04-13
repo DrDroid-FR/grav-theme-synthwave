@@ -1,0 +1,19 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block hero %}
+{% for module in page.collection() if module.template == 'modular/hero' %}
+<div id="{{ module.menu|hyphenize }}" class="modular-hero">
+    {{ module.content|raw }}
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+<main class="content">
+{% for module in page.collection() if module.template != 'modular/hero' %}
+    <div id="{{ module.menu|hyphenize }}" class="modular-section">
+        {{ module.content|raw }}
+    </div>
+{% endfor %}
+</main>
+{% endblock %}

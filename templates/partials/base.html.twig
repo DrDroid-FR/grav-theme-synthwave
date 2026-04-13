@@ -1,0 +1,452 @@
+{% set compress = theme_var('production-mode') ? '.min.css' : '.css' %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}">
+<head>
+{% block head deferred %}
+    <meta charset="utf-8" />
+    <title>{% if page.title %}{{ page.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap">
+    <link rel="icon" type="image/png" href="{{ url('theme://images/favicon/favicon-96x96.png') }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ url('theme://images/favicon/favicon.svg') }}" />
+    <link rel="shortcut icon" href="{{ url('theme://images/favicon/favicon.ico') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('theme://images/favicon/apple-touch-icon.png') }}" />
+    <meta name="apple-mobile-web-app-title" content="Synthwave" />
+    <link rel="manifest" href="{{ url('theme://images/favicon/site.webmanifest') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+{% endblock head %}
+
+{% block stylesheets %}
+    {% do assets.addCss('theme://css/synthwave.css') %}
+{% endblock %}
+
+{% block assets deferred %}
+    {{ assets.css()|raw }}
+    {{ assets.js()|raw }}
+{% endblock %}
+</head>
+<body id="top" class="{% if theme_var('enable-vhs') %}vhs-effect{% endif %}">
+    <div class="synthsun">
+        <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="sunGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff00ff;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#ff6600;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#ffcc00;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="gridGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#bc13fe;stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:#bc13fe;stop-opacity:0" />
+                </linearGradient>
+            </defs>
+            <circle cx="600" cy="150" r="80" fill="url(#sunGradient)">
+                <animate attributeName="opacity" values="1;0.8;1" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="600" cy="150" r="60" fill="#ffcc00" opacity="0.3"/>
+            </svg>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="{{ base_url }}" class="logo">
+                    {% if theme_var('logo_image') == 1 %}
+                        {% set logoVar = theme_var('logo_image_file') %}
+                        {% set logoSrc = 'theme://images/logo.svg' %}
+                        {% if logoVar %}
+                            {% set logoKeys = logoVar|keys %}
+                            {% if logoKeys|length > 0 %}
+                                {% set firstKey = logoKeys[0] %}
+                                {% set logoData = attribute(logoVar, firstKey) %}
+                                {% if logoData and logoData.name %}
+                                    {% set logoSrc = 'theme://images/' ~ logoData.name %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                        <img src="{{ url(logoSrc) }}" alt="{{ site.title }}" class="logo-img">
+                    {% elseif theme_var('site_name') %}
+                        {{ theme_var('site_name') }}
+                    {% elseif site.title %}
+                        {{ site.title }}
+                    {% else %}
+                        SYNTHWAVE
+                    {% endif %}
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="menu-with-contact">
+                <nav class="navigation">
+                    <ul>
+                    {% for item in pages.children.visible %}
+                        {% if item.menu != 'Contact' %}
+                        <li><a href="{{ item.url }}">{{ item.menu }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                </nav>
+                <a href="{{ pages.find('/contact').url }}" class="contact-icon-link"><img src="{{ url('theme://images/phone.webp') }}" alt="Contact"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% block hero %}
+
+    <div class="hero">
+        {% if not theme_var('hide-play-button') %}
+        <button class="play-btn" id="playBtn" aria-label="Play music">
+            <svg viewBox="0 0 24 24" class="play-icon"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg viewBox="0 0 24 24" class="pause-icon"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        </button>
+        {% endif %}
+        <div class="container">
+            <h1>{{ page.title }}</h1>
+            {% if page.header.subtitle %}
+            <p>{{ page.header.subtitle }}</p>
+            {% endif %}
+        </div>
+        <div class="hero-city"></div>
+        <div class="hero-sun"></div>
+        <div class="hero-sky"></div>
+        <div class="hero-grid"></div>
+    </div>
+    {% endblock %}
+
+    {% if not theme_var('hide-play-button') %}
+    {% set musicVar = theme_var('music-file') %}
+    {% set audioSrc = 'theme://assets/Midnight_Pulse.mp3' %}
+    {% if musicVar %}
+        {% set musicKeys = musicVar|keys %}
+        {% if musicKeys|length > 0 %}
+            {% set firstKey = musicKeys[0] %}
+            {% set musicData = attribute(musicVar, firstKey) %}
+            {% if musicData and musicData.name %}
+                {% set audioSrc = 'theme://songs/' ~ musicData.name %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    <audio id="heroAudio" src="{{ url(audioSrc) }}" loop></audio>
+    {% endif %}
+
+    <main class="content">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {{ "now"|date("Y") }} Synthwave theme made with <span class="heart-beat">♥</span> by <a href="https://github.com/DrDroid-FR">Dr Droid</a> and powered by <a href="https://getgrav.org">Grav</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        (function() {
+            var menuToggle = document.querySelector('.menu-toggle');
+            var menuWithContact = document.querySelector('.menu-with-contact');
+            if (menuToggle && menuWithContact) {
+                menuToggle.addEventListener('click', function() {
+                    menuToggle.classList.toggle('active');
+                    menuWithContact.classList.toggle('active');
+                });
+            }
+        })();
+    </script>
+    
+    {% if not theme_var('hide-play-button') and not theme_var('enable-ajax') %}
+    <script>
+        (function() {
+            var audio = document.getElementById('heroAudio');
+            if (!audio) return;
+            
+            var btn = document.getElementById('playBtn');
+            if (!btn) return;
+            
+            function updateBtnState(isPlaying) {
+                if (isPlaying) {
+                    btn.classList.add('playing');
+                    btn.querySelector('.play-icon').style.display = 'none';
+                    btn.querySelector('.pause-icon').style.display = 'block';
+                } else {
+                    btn.classList.remove('playing');
+                    btn.querySelector('.play-icon').style.display = 'block';
+                    btn.querySelector('.pause-icon').style.display = 'none';
+                }
+            }
+            
+            function togglePlay() {
+                if (audio.paused) {
+                    audio.play().then(function() {
+                        sessionStorage.setItem('synthwave_music_playing', 'true');
+                        updateBtnState(true);
+                    }).catch(function() {});
+                } else {
+                    audio.pause();
+                    sessionStorage.setItem('synthwave_music_playing', 'false');
+                    updateBtnState(false);
+                }
+            }
+            
+            btn.addEventListener('click', togglePlay);
+            
+            var wasPlaying = sessionStorage.getItem('synthwave_music_playing') === 'true';
+            if (wasPlaying) {
+                audio.play().then(function() {
+                    updateBtnState(true);
+                }).catch(function() {});
+            }
+            
+            audio.addEventListener('play', function() {
+                updateBtnState(true);
+            });
+            
+            audio.addEventListener('pause', function() {
+                updateBtnState(false);
+            });
+        })();
+    </script>
+    {% endif %}
+    
+    {% if theme_var('enable-ajax') and not theme_var('hide-play-button') %}
+    <script>
+        (function() {
+            var audio = document.getElementById('heroAudio');
+            if (!audio) return;
+            
+            var isPageLoaded = false;
+            
+            function getBtn() {
+                return document.getElementById('playBtn');
+            }
+            
+            function updateBtnState(btn, isPlaying) {
+                if (!btn) return;
+                if (isPlaying) {
+                    btn.classList.add('playing');
+                    btn.querySelector('.play-icon').style.display = 'none';
+                    btn.querySelector('.pause-icon').style.display = 'block';
+                } else {
+                    btn.classList.remove('playing');
+                    btn.querySelector('.play-icon').style.display = 'block';
+                    btn.querySelector('.pause-icon').style.display = 'none';
+                }
+            }
+            
+            function attachBtnEvents(btn) {
+                if (!btn) return;
+                btn.addEventListener('click', function() {
+                    if (audio.paused) {
+                        audio.play();
+                        sessionStorage.setItem('synthwave_music_playing', 'true');
+                        updateBtnState(btn, true);
+                    } else {
+                        audio.pause();
+                        sessionStorage.setItem('synthwave_music_playing', 'false');
+                        updateBtnState(btn, false);
+                    }
+                });
+            }
+            
+            function resumeMusicIfNeeded() {
+                var wasPlaying = sessionStorage.getItem('synthwave_music_playing') === 'true';
+                var btn = getBtn();
+                if (wasPlaying && btn) {
+                    if (audio.paused) {
+                        audio.play().then(function() {
+                            updateBtnState(btn, true);
+                        }).catch(function() {});
+                    } else {
+                        updateBtnState(btn, true);
+                    }
+                } else if (btn) {
+                    updateBtnState(btn, false);
+                }
+            }
+            
+            if (!isPageLoaded) {
+                isPageLoaded = true;
+                attachBtnEvents(getBtn());
+            }
+            
+            resumeMusicIfNeeded();
+            
+            function interceptLinks() {
+                var basePath = {{ base_url|json_encode|raw }};
+                document.querySelectorAll('a[href^="' + basePath + '"], a[href^="/"], a[href^="."]').forEach(function(link) {
+                    if (link.dataset.ajaxLoaded) return;
+                    link.dataset.ajaxLoaded = 'true';
+                    link.addEventListener('click', function(e) {
+                        var url = link.href;
+                        if (!url || url.indexOf('#') === url.length - 1) return;
+                        if (link.target || link.download) return;
+                        if (link.hostname !== window.location.hostname) return;
+                        if (url.indexOf('?lightbox') !== -1) return;
+                        
+                        closeMobileMenu();
+                        e.preventDefault();
+                        fetch(url + '?ajax=1')
+                            .then(function(response) { return response.text(); })
+                            .then(function(html) {
+                                var parser = new DOMParser();
+                                var doc = parser.parseFromString(html, 'text/html');
+                                var newHero = doc.querySelector('.hero');
+                                var oldHero = document.querySelector('.hero');
+                                var newContent = doc.querySelector('main.content');
+                                var oldContent = document.querySelector('main.content');
+                                if ((newHero && oldHero) && (newContent && oldContent)) {
+                                    oldHero.innerHTML = newHero.innerHTML;
+                                    oldContent.innerHTML = newContent.innerHTML;
+                                    window.history.pushState({}, '', url);
+                                    window.scrollTo(0, 0);
+                                    interceptLinks();
+                                    var newBtn = getBtn();
+                                    attachBtnEvents(newBtn);
+                                    var mt = document.querySelector('.menu-toggle');
+                                    var mc = document.querySelector('.menu-with-contact');
+                                    if (mt && mc) {
+                                        mt.classList.remove('active');
+                                        mc.classList.remove('active');
+                                    }
+                                    var wasPlaying = sessionStorage.getItem('synthwave_music_playing') === 'true';
+                                    updateBtnState(newBtn, wasPlaying && !audio.paused);
+                                } else {
+                                    window.location.href = url;
+                                }
+                            })
+                            .catch(function() {
+                                window.location.href = url;
+                            });
+                    });
+                });
+            }
+            
+            interceptLinks();
+            window.addEventListener('popstate', function() {
+                var btn = getBtn();
+                attachBtnEvents(btn);
+                var wasPlaying = sessionStorage.getItem('synthwave_music_playing') === 'true';
+                if (wasPlaying) {
+                    if (audio.paused) {
+                        audio.play().then(function() {
+                            updateBtnState(btn, true);
+                        }).catch(function() {});
+                    } else {
+                        updateBtnState(btn, true);
+                    }
+                }
+            });
+            
+            var menuToggle = document.querySelector('.menu-toggle');
+            var menuWithContact = document.querySelector('.menu-with-contact');
+            function closeMobileMenu() {
+                if (menuToggle && menuWithContact) {
+                    menuToggle.classList.remove('active');
+                    menuWithContact.classList.remove('active');
+                }
+            }
+        })();
+    </script>
+    {% endif %}
+    
+
+    
+    {% if theme_var('enable-vhs') %}
+    <div class="vhs-controls">
+        <div class="vhs-controls-title">VHS</div>
+        <label><input type="checkbox" id="vhs-scanlines" checked> Scanlines</label>
+        <label><input type="checkbox" id="vhs-noise" checked> Noise</label>
+        <label><input type="checkbox" id="vhs-flicker" checked> Flicker</label>
+        <label><input type="checkbox" id="vhs-chromatic"> Chromatic</label>
+    </div>
+    
+<script>
+        var body = document.body;
+        var effects = ['vhs-scanlines', 'vhs-noise', 'vhs-flicker'];
+        effects.forEach(function(effect) {
+            var checkbox = document.getElementById(effect);
+            if (checkbox && checkbox.checked) {
+                body.classList.add(effect);
+            }
+        });
+        
+        document.getElementById('vhs-scanlines').addEventListener('change', function() {
+            body.classList.toggle('vhs-scanlines', this.checked);
+        });
+        document.getElementById('vhs-noise').addEventListener('change', function() {
+            body.classList.toggle('vhs-noise', this.checked);
+        });
+        document.getElementById('vhs-flicker').addEventListener('change', function() {
+            body.classList.toggle('vhs-flicker', this.checked);
+        });
+        document.getElementById('vhs-chromatic').addEventListener('change', function() {
+            body.classList.toggle('vhs-chromatic-active', this.checked);
+        });
+    </script>
+{% endif %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.createElement("div");
+    modal.id = "simple-lightbox";
+    modal.innerHTML = '<span>&times;</span><img src="" alt="Lightbox">';
+    document.body.appendChild(modal);
+    var imgEl = modal.querySelector("img");
+    var closeBtn = modal.querySelector("span");
+    
+    closeBtn.addEventListener("click", function(e) { 
+        e.preventDefault();
+        e.stopPropagation();
+        modal.style.display = "none"; 
+    });
+    modal.addEventListener("click", function(e) { 
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.target === modal) modal.style.display = "none"; 
+    });
+    imgEl.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    
+    document.addEventListener("click", function(e) {
+        var target = e.target;
+        while (target && target.tagName !== "A") {
+            target = target.parentElement;
+        }
+        if (!target || !target.href) return;
+        
+        var href = target.getAttribute("href") || "";
+        if (!href) return;
+        
+        if (href.indexOf("?lightbox") === -1) return;
+        
+        var url = href.split("?")[0];
+        
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        
+        imgEl.src = url;
+        modal.style.display = "flex";
+        
+        return false;
+    }, true);
+    
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && modal.style.display === "flex") {
+            e.preventDefault();
+            modal.style.display = "none";
+        }
+    });
+});
+</script>
+</body>
+</html>

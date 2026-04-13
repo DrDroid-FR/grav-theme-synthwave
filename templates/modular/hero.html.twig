@@ -1,0 +1,10 @@
+{% set hero_image = page.header.hero_image ? page.media[page.header.hero_image] : page.media.images|first %}
+
+<section class="modular-hero" style="{% if hero_image %}background-image: url('{{ hero_image.url }}');{% endif %}">
+    <div class="container">
+        <h1>{{ page.title }}</h1>
+        {% if page.header.subtitle %}
+        <p>{{ page.header.subtitle }}</p>
+        {% endif %}
+    </div>
+</section>

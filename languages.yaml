@@ -1,0 +1,71 @@
+en:
+  THEME_SYNTHWAVE:
+    PRODUCTION_MODE: "Production Mode"
+    PRODUCTION_MODE_HELP: "Enable production mode for optimized loading"
+    SITE_NAME: "Site Name"
+    SITE_NAME_HELP: "Override the site name displayed in the header"
+    LOGO_IMAGE: "Enable Logo Image"
+    LOGO_IMAGE_HELP: "Use an image as the logo instead of text"
+    LOGO_IMAGE_FILE: "Logo Image File"
+    LOGO_IMAGE_FILE_HELP: "Upload your logo image (SVG, PNG, etc.)"
+    MUSIC_FILE: "Background Music"
+    MUSIC_FILE_HELP: "Select an MP3 file as background music"
+    HIDE_PLAY_BUTTON: "Hide Play Button"
+    HIDE_PLAY_BUTTON_HELP: "Hide the music play button in the hero"
+    ENABLE_AJAX: "Enable AJAX Navigation"
+    ENABLE_AJAX_HELP: "Enable smooth page transitions without page reload - keeps music playing across pages"
+    ENABLE_VHS: "Enable VHS Effect"
+    ENABLE_VHS_HELP: "Add retro VHS glitch effect overlay with scanlines, noise, flicker and chromatic aberration"
+    BLOG:
+      ITEM:
+        CONTINUE_READING: Continue reading...
+        NEXT_POST: Next Post
+        PREV_POST: Previous Post
+
+de:
+  THEME_SYNTHWAVE:
+    PRODUCTION_MODE: "Produktionsmodus"
+    PRODUCTION_MODE_HELP: "Aktivieren Sie den Produktionsmodus für optimiertes Laden"
+    SITE_NAME: "Seitenname"
+    SITE_NAME_HELP: "Den im Header angezeigten Seitenname überschreiben"
+    LOGO_IMAGE: "Logo-Bild aktivieren"
+    LOGO_IMAGE_HELP: "Ein Bild als Logo anstelle von Text verwenden"
+    LOGO_IMAGE_FILE: "Logo-Bilddatei"
+    LOGO_IMAGE_FILE_HELP: "Laden Sie Ihr Logo-Bild hoch (SVG, PNG, etc.)"
+    MUSIC_FILE: "Hintergrundmusik"
+    MUSIC_FILE_HELP: "MP3-Datei als Hintergrundmusik auswählen"
+    HIDE_PLAY_BUTTON: "Abspiel-Button ausblenden"
+    HIDE_PLAY_BUTTON_HELP: "Den Musik-Abspielbutton im Hero ausblenden"
+    ENABLE_AJAX: "AJAX-Navigation aktivieren"
+    ENABLE_AJAX_HELP: "Glatte Seitenübergänge ohne Neuladen - hält Musik am Laufen"
+    ENABLE_VHS: "VHS-Effekt aktivieren"
+    ENABLE_VHS_HELP: "Retro VHS-Glitch-Effekt mit Scanlines, Rauschen, Flackern und chromatischer Aberration"
+    BLOG:
+      ITEM:
+        CONTINUE_READING: Weiterlesen...
+        NEXT_POST: Nächster Beitrag
+        PREV_POST: Vorheriger Beitrag
+
+fr:
+  THEME_SYNTHWAVE:
+    PRODUCTION_MODE: "Mode Production"
+    PRODUCTION_MODE_HELP: "Activer le mode production pour un chargement optimisé"
+    SITE_NAME: "Nom du site"
+    SITE_NAME_HELP: "Remplacer le nom du site affiché dans l'en-tête"
+    LOGO_IMAGE: "Activer le logo image"
+    LOGO_IMAGE_HELP: "Utiliser une image comme logo au lieu du texte"
+    LOGO_IMAGE_FILE: "Fichier logo"
+    LOGO_IMAGE_FILE_HELP: "Télécharger votre logo (SVG, PNG, etc.)"
+    MUSIC_FILE: "Musique de fond"
+    MUSIC_FILE_HELP: "Sélectionner un fichier MP3 comme musique de fond"
+    HIDE_PLAY_BUTTON: "Masquer le bouton lecture"
+    HIDE_PLAY_BUTTON_HELP: "Masquer le bouton de lecture musicale dans le hero"
+    ENABLE_AJAX: "Activer AJAX navigation"
+    ENABLE_AJAX_HELP: "Activer les transitions de page fluides sans rechargement - garde la musique en lecture"
+    ENABLE_VHS: "Activer effet VHS"
+    ENABLE_VHS_HELP: "Ajouter l'effet glitch VHS rétro avec scanlines, bruit, scintillement et aberration chromatique"
+    BLOG:
+      ITEM:
+        CONTINUE_READING: Continuer la lecture...
+        NEXT_POST: Article suivant
+        PREV_POST: Article précédent
