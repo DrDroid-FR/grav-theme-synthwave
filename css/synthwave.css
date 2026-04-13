@@ -402,8 +402,43 @@ a:hover {
     position:relative;
     font-size: 3.5rem;
     margin-top: 5em;
-    animation: flicker 3s infinite;
     z-index: 4;
+    animation: 
+        flicker 3s infinite,
+        glitch-chromatic 0.8s infinite;
+}
+
+@keyframes glitch-chromatic {
+    0%, 85%, 87%, 89%, 100% {
+        text-shadow: 
+            2px 0 rgba(255, 0, 255, 0.5), 
+            -2px 0 rgba(0, 255, 255, 0.5);
+        transform: translateX(0) skewX(0);
+    }
+    86% {
+        text-shadow: 
+            -4px 0 rgba(255, 0, 255, 0.7), 
+            4px 0 rgba(0, 255, 255, 0.7),
+            -8px 0 rgba(255, 0, 255, 0.3), 
+            8px 0 rgba(0, 255, 255, 0.3);
+        transform: translateX(-2px) skewX(-2deg);
+    }
+    88% {
+        text-shadow: 
+            3px 0 rgba(255, 0, 255, 0.9), 
+            -3px 0 rgba(0, 255, 255, 0.9),
+            7px 0 rgba(255, 0, 255, 0.4), 
+            -7px 0 rgba(0, 255, 255, 0.4);
+        transform: translateX(2px) skewX(3deg);
+    }
+    90% {
+        text-shadow: 
+            -2px 0 rgba(255, 0, 255, 0.6), 
+            2px 0 rgba(0, 255, 255, 0.6),
+            -5px 0 rgba(255, 0, 255, 0.3), 
+            5px 0 rgba(0, 255, 255, 0.3);
+        transform: translateX(-1px) skewX(-1deg);
+    }
 }
 
 @keyframes sunPulse {
