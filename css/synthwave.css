@@ -35,6 +35,10 @@ body {
     overflow-x: hidden;
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
@@ -62,6 +66,7 @@ a:hover {
   box-shadow: 0 0 20px rgba(188, 19, 254, 0.5);
   padding: 5px 0;
   position: relative;
+  z-index: 1000;
   overflow: hidden;
   pointer-events: none;
 }
@@ -325,10 +330,6 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    contain: paint layout;
-    will-change: transform;
 }
 
 .hero::before {
@@ -357,8 +358,6 @@ a:hover {
     background-size: 100% 100%, 100% 50px, 100% 50px;
     animation: gridMove 20s linear infinite;
     z-index: -1;
-    transform: translateZ(0);
-    contain: paint;
 }
 
 @keyframes gridMove {
@@ -381,8 +380,7 @@ a:hover {
         0 0 80px #ffcc00,
         0 0 100px rgba(255, 0, 255, 0.5);
     animation: sunPulse 4s ease-in-out infinite;
-    transform: translateX(-50%) translateZ(0);
-    contain: paint;
+    transform: translateX(-50%);
 }
 
 .hero h1 {
@@ -428,12 +426,10 @@ a:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 272px; /*50%;*/
+    height: 272px;
     overflow: hidden;
     perspective: 500px;
     z-index: 3;
-    transform: translateZ(0);
-    contain: paint;
 }
 
 .hero-grid::before {
@@ -468,23 +464,19 @@ a:hover {
         transparent 72%
     );
     z-index: 2;
-    transform: translateZ(0);
-    contain: paint;
 }
 
 .hero-city {
     position: absolute;
     background-image: url('../images/city.svg');
     filter: invert(14%) sepia(54%) hue-rotate(246deg) brightness(117%) contrast(120%);
-    bottom: 138px; /*140px;*/
+    bottom: 138px;
     left: 0;
     right: 0;
     width: 100%;
-    height: 465px; /*83%;*/
+    height: 465px;
     object-fit: cover;
     z-index: 1;
-    transform: translateZ(0);
-    contain: paint;
 }
 
 .hero-title-container {

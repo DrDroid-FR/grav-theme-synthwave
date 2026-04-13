@@ -137,6 +137,7 @@
                 menuToggle.addEventListener('click', function() {
                     menuToggle.classList.toggle('active');
                     menuWithContact.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
                 });
             }
         })();
@@ -331,6 +332,7 @@
                 if (menuToggle && menuWithContact) {
                     menuToggle.classList.remove('active');
                     menuWithContact.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                 }
             }
         })();
