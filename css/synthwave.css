@@ -61,14 +61,17 @@ a:hover {
 }
 
 .header {
-  background: linear-gradient(180deg, #0a0a0f 0%, rgba(188, 19, 254, 0.1) 100%);
+  background: black;
   border-bottom: 2px solid var(--neon-purple);
   box-shadow: 0 0 20px rgba(188, 19, 254, 0.5);
   padding: 5px 0;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1000;
   overflow: hidden;
   pointer-events: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .header > * {
@@ -121,6 +124,8 @@ a:hover {
     border: none;
     cursor: pointer;
     z-index: 100;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
 }
 
 .menu-toggle span {
@@ -130,6 +135,7 @@ a:hover {
     background: var(--neon-pink);
     box-shadow: 0 0 8px var(--neon-pink);
     transition: all 0.3s ease;
+    will-change: transform, opacity;
 }
 
 .menu-toggle.active span:nth-child(1) {
@@ -147,6 +153,7 @@ a:hover {
 @media (max-width: 790px) {
     .menu-toggle {
         display: flex;
+        background: var(--dark-bg);
     }
     
     .menu-with-contact {
@@ -166,6 +173,7 @@ a:hover {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        will-change: opacity;
     }
     
     .menu-with-contact.active {
@@ -175,10 +183,17 @@ a:hover {
 
     .menu-with-contact .navigation,
     .menu-with-contact .contact-icon-link {
-        opacity: 0;
-        transform: scale(0.9);
+        opacity: 1;
+        transform: scale(1);
         transform-origin: center center;
         transition: opacity 0.25s ease 0.1s, transform 0.25s ease 0.1s;
+        will-change: opacity, transform;
+    }
+    
+    .menu-with-contact:not(.active) .navigation,
+    .menu-with-contact:not(.active) .contact-icon-link {
+        opacity: 0;
+        transform: scale(0.9);
     }
     
     .menu-with-contact.active .navigation,
@@ -527,6 +542,8 @@ a:hover {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
 }
 
 .play-btn:hover {
