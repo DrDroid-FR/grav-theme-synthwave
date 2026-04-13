@@ -1,6 +1,6 @@
 # Synthwave Theme
 
-![](screenshots.jpg)
+![](screenshot.jpg)
 
 **Synthwave** is a retro 80s inspired neon synthwave theme for Grav CMS (tested on Grav 1.7.40 and 1.8.0-beta.29).
 
