@@ -26,7 +26,6 @@ Retro 80s **Synthwave** Theme - A visually stunning theme featuring neon colors,
   - Default, Item, Blog templates
   - Error page template
   - Modular templates (hero, text, features, gallery)
-- Custom contact page with retro fax modem styling
 - **VHS effect**: Retro TV glitch effect with scanlines, noise, flicker, and chromatic aberration (can be enabled in settings)
 
 ## Installation
@@ -103,15 +102,10 @@ Disabled by default. To enable:
    - Chromatic
 3. Toggle individual effects on/off as needed
 
-## Pages
+## Templates
 
-- **History** - Landing page (synthwave genre history)
-- **Theme** - Theme presentation and download links
-- **Grav**  - About Grav CMS (disabled on the demo, kept for reference)
-- **Typography** - Typography showcase
-- **Contact** - Retro cellphone icon - Contact form with retro fax modem header
-
-Note: Quark's base templates have been adapted in the `templates/` folder.
+Main synthwave theme templates are `default.html.twig` and `partials/base.html.twig`
+Quark's base templates have been adapted in the `templates/` folder in both normal and modular versions.
 
 ## To-Do
 

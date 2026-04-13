@@ -959,6 +959,12 @@ button[type="reset"]:hover, .button-secondary:hover {
     background-size: cover;
     background-position: center;
     background-color: var(--grid-bg);
+    overflow: visible;
+}
+
+.modular-hero .container {
+    position: relative;
+    z-index: 10;
 }
 
 .modular-hero h1 {
