@@ -16,6 +16,16 @@ en:
     ENABLE_AJAX_HELP: "Enable smooth page transitions without page reload - keeps music playing across pages"
     ENABLE_VHS: "Enable VHS Effect"
     ENABLE_VHS_HELP: "Add retro VHS glitch effect overlay with scanlines, noise, flicker and chromatic aberration"
+    HERO_DECORATION_TYPE: "Hero Decoration Style"
+    HERO_DECORATION_TYPE_HELP: "Choose the decorative elements behind the title"
+    HERO_DECORATION_IMAGE: "Hero Decoration Image"
+    HERO_DECORATION_IMAGE_HELP: "Upload a custom background image to replace the default decorations"
+    HERO_DECORATION_VIDEO: "Hero Decoration Video"
+    HERO_DECORATION_VIDEO_HELP: "Upload a video to replace the default decorations"
+    HERO_CUSTOM_TWIG: "Custom Twig Template"
+    HERO_CUSTOM_TWIG_HELP: "Enter the filename (e.g. custom-hero.html.twig) to load from theme templates folder"
+    HERO_OVERLAY: "Enable Hero Overlay"
+    HERO_OVERLAY_HELP: "Add a dark overlay on custom hero content for better text readability"
     BLOG:
       ITEM:
         CONTINUE_READING: Continue reading...
@@ -40,6 +50,16 @@ de:
     ENABLE_AJAX_HELP: "Glatte Seitenübergänge ohne Neuladen - hält Musik am Laufen"
     ENABLE_VHS: "VHS-Effekt aktivieren"
     ENABLE_VHS_HELP: "Retro VHS-Glitch-Effekt mit Scanlines, Rauschen, Flackern und chromatischer Aberration"
+    HERO_DECORATION_TYPE: "Hero-Dekorationsstil"
+    HERO_DECORATION_TYPE_HELP: "Wählen Sie die dekorativen Elemente hinter dem Titel"
+    HERO_DECORATION_IMAGE: "Hero-Dekorationsbild"
+    HERO_DECORATION_IMAGE_HELP: "Laden Sie ein eigenes Hintergrundbild hoch, um die Standard-Dekorationen zu ersetzen"
+    HERO_DECORATION_VIDEO: "Hero-Dekorationsvideo"
+    HERO_DECORATION_VIDEO_HELP: "Laden Sie ein Video hoch, um die Standard-Dekorationen zu ersetzen"
+    HERO_CUSTOM_TWIG: "Benutzerdefinierte Twig-Vorlage"
+    HERO_CUSTOM_TWIG_HELP: "Geben Sie den Dateinamen ein (z.B. custom-hero.html.twig) zum Laden aus dem Theme-Vorlagenordner"
+    HERO_OVERLAY: "Hero-Overlay aktivieren"
+    HERO_OVERLAY_HELP: "Fügen Sie eine dunkle Ebene auf dem benutzerdefinierten Hero-Medieninhalt für bessere Textlesbarkeit hinzu"
     BLOG:
       ITEM:
         CONTINUE_READING: Weiterlesen...
@@ -64,6 +84,16 @@ fr:
     ENABLE_AJAX_HELP: "Activer les transitions de page fluides sans rechargement - garde la musique en lecture"
     ENABLE_VHS: "Activer effet VHS"
     ENABLE_VHS_HELP: "Ajouter l'effet glitch VHS rétro avec scanlines, bruit, scintillement et aberration chromatique"
+    HERO_DECORATION_TYPE: "Style de decoration Hero"
+    HERO_DECORATION_TYPE_HELP: "Choisir les éléments décoratifs derrière le titre"
+    HERO_DECORATION_IMAGE: "Image de decoration Hero"
+    HERO_DECORATION_IMAGE_HELP: "Télécharger une image de fond personnalisée pour remplacer les décorations par défaut"
+    HERO_DECORATION_VIDEO: "Vidéo de decoration Hero"
+    HERO_DECORATION_VIDEO_HELP: "Télécharger une vidéo pour remplacer les décorations par défaut"
+    HERO_CUSTOM_TWIG: "Modèle Twig personnalisé"
+    HERO_CUSTOM_TWIG_HELP: "Entrer le nom du fichier (ex: custom-hero.html.twig) à charger depuis le dossier des modèles du thème"
+    HERO_OVERLAY: "Activer l'overlay Hero"
+    HERO_OVERLAY_HELP: "Ajouter une couche sombre sur le contenu hero personnalisé pour une meilleure lisibilité du texte"
     BLOG:
       ITEM:
         CONTINUE_READING: Continuer la lecture...

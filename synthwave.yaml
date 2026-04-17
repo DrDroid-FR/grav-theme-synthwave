@@ -1,2 +1,4 @@
 enabled: true
 production-mode: true
+hero_decoration_type: default
+hero_overlay: true

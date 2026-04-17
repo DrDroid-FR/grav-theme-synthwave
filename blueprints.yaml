@@ -1,7 +1,7 @@
 name: Synthwave
 slug: synthwave
 type: theme
-version: 1.0.0
+version: 1.1.0
 description: Retro 80s Synthwave Theme
 icon: microchip
 author:
@@ -107,5 +107,49 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
+
+    _hero_section:
+      type: section
+      title: Custom Hero Section
+      underline: true
+
+    hero_decoration_type:
+      type: select
+      label: Hero Decoration Style
+      help: Choose the decorative elements behind the title
+      default: default
+      options:
+        default: Default (Sun + City + Grid)
+        image: Custom Background Image
+        video: Custom Background Video
+        twig: Custom Twig Template
+        none: No Decoration
+
+    hero_decoration_image:
+      type: file
+      label: Hero Decoration Image
+      help: Upload a custom background image to replace the default decorations
+      destination: 'theme://images'
+      accept:
+        - .jpg
+        - .jpeg
+        - .png
+        - .webp
+        - .svg
+
+    hero_decoration_video:
+      type: file
+      label: Hero Decoration Video
+      help: Upload a video to replace the default decorations
+      destination: 'theme://videos'
+      accept:
+        - .mp4
+        - .webm
+        - .ogg
+
+    hero_custom_twig:
+      type: text
+      label: Custom Twig Template
+      help: Enter the filename (e.g. "custom-hero.html.twig") to load from theme templates/partials/ folder
 
     

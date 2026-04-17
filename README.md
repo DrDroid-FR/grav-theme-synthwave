@@ -11,7 +11,7 @@ Retro 80s **Synthwave** Theme - A visually stunning theme featuring neon colors,
 ## Features
 
 - Retro 80s synthwave aesthetic with neon colors (pink, cyan, purple, orange)
-- Animated hero section with retro sun, perspective grid, and city skyline
+- Animated hero section with retro sun, perspective grid, and city skyline (customizable from the admin)
 - Customizable logo (text or image)
 - Google Fonts integration (Orbitron & Share Tech Mono)
 - Custom scrollbar and form styling
@@ -51,6 +51,11 @@ The theme can be configured through the Grav Admin Panel under **Theme > Synthwa
 | Hide Play Button | Toggle | Hide the music play button in the hero |
 | Enable AJAX Navigation | Toggle | Enable smooth page transitions without page reload - keeps music playing across pages (enabled by default, can be deactivated) |
 | Enable VHS Effect | Toggle | Add retro VHS glitch effect overlay with scanlines, noise, flicker and chromatic aberration |
+| Hero Decoration Style | Select | Choose decorative elements: Default (sun/city/grid), Custom Image, Custom Video, Custom Twig, or None |
+| Hero Decoration Image | File | Upload custom background image to replace default decorations |
+| Hero Decoration Video | File | Upload custom video to replace default decorations |
+| Custom Twig Template | Text | Enter Twig template filename (e.g. "custom-hero.html.twig") to include from templates/partials/ |
+| Hero Overlay | Toggle | Add dark overlay on custom hero media for better text readability |
 
 ## Usage
 
@@ -101,6 +106,30 @@ Disabled by default. To enable:
    - Flicker
    - Chromatic
 3. Toggle individual effects on/off as needed
+
+### Custom Hero Decoration
+Replace the default synthwave decorations (sun, city, grid, sky) with custom media:
+
+1. **Custom Image**: Select "Custom Background Image" in Hero Decoration Style, then upload an image
+2. **Custom Video**: Select "Custom Background Video", then upload a video (mp4, webm, ogg)
+3. **Custom Twig**: Select "Custom Twig", enter your template filename in the Custom Twig Template field
+4. **No Decoration**: Select "None" for a clean background
+
+The Hero Overlay toggle adds a dark layer over custom media for better text readability.
+
+#### Custom Twig Template
+Create a Twig file in `templates/partials/` (e.g., `custom-hero.html.twig`) and reference it in the theme settings. Available variables:
+- `page` - Current page object (page.title, page.header.subtitle, etc.)
+- `site` - Site configuration
+- `theme_var('option')` - Access any theme setting
+
+Example included: `custom-hero.html.twig`:
+```twig
+{# custom twig for hero #}
+<div style="text-align: center;">
+    <p>Custom HERO activated</p>
+</div>
+```
 
 ## Templates
 

@@ -82,6 +82,55 @@
     {% block hero %}
 
     <div class="hero">
+        {% if theme_var('hero_decoration_type') == 'image' %}
+            {% set heroDecorImg = theme_var('hero_decoration_image') %}
+            {% if heroDecorImg %}
+                {% set heroDecorImgKeys = heroDecorImg|keys %}
+                {% if heroDecorImgKeys|length > 0 %}
+                    {% set heroDecorFirstKey = heroDecorImgKeys[0] %}
+                    {% set heroDecorImgData = attribute(heroDecorImg, heroDecorFirstKey) %}
+                    {% if heroDecorImgData and heroDecorImgData.name %}
+                        {% set heroDecorBgUrl = 'theme://images/' ~ heroDecorImgData.name %}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            {% if heroDecorBgUrl %}
+                <div class="hero-custom-bg" style="background-image: url('{{ url(heroDecorBgUrl) }}');"></div>
+            {% endif %}
+            {% if theme_var('hero_overlay') %}<div class="hero-overlay"></div>{% endif %}
+        {% elseif theme_var('hero_decoration_type') == 'video' %}
+            {% set heroDecorVid = theme_var('hero_decoration_video') %}
+            {% if heroDecorVid %}
+                {% set heroDecorVidKeys = heroDecorVid|keys %}
+                {% if heroDecorVidKeys|length > 0 %}
+                    {% set heroDecorFirstKey = heroDecorVidKeys[0] %}
+                    {% set heroDecorVidData = attribute(heroDecorVid, heroDecorFirstKey) %}
+                    {% if heroDecorVidData and heroDecorVidData.name %}
+                        {% set heroDecorVidSrc = 'theme://videos/' ~ heroDecorVidData.name %}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            {% if heroDecorVidSrc %}
+                <video class="hero-custom-video" autoplay muted loop playsinline>
+                    <source src="{{ url(heroDecorVidSrc) }}" type="video/mp4">
+                </video>
+            {% endif %}
+            {% if theme_var('hero_overlay') %}<div class="hero-overlay"></div>{% endif %}
+        {% elseif theme_var('hero_decoration_type') == 'twig' %}
+            {% set customTwigFile = theme_var('hero_custom_twig') %}
+            {% if customTwigFile %}
+                {% include 'partials/' ~ customTwigFile ignore missing %}
+            {% endif %}
+            {% if theme_var('hero_overlay') %}<div class="hero-overlay"></div>{% endif %}
+        {% elseif theme_var('hero_decoration_type') == 'none' %}
+            {# No decoration - just clean background #}
+        {% else %}
+            <div class="hero-city"></div>
+            <div class="hero-sun"></div>
+            <div class="hero-sky"></div>
+            <div class="hero-grid"></div>
+        {% endif %}
+
         {% if not theme_var('hide-play-button') %}
         <button class="play-btn" id="playBtn" aria-label="Play music">
             <svg viewBox="0 0 24 24" class="play-icon"><polygon points="5,3 19,12 5,21"/></svg>
@@ -94,10 +143,6 @@
             <p>{{ page.header.subtitle }}</p>
             {% endif %}
         </div>
-        <div class="hero-city"></div>
-        <div class="hero-sun"></div>
-        <div class="hero-sky"></div>
-        <div class="hero-grid"></div>
     </div>
     {% endblock %}
 

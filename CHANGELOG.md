@@ -2,6 +2,17 @@
 
 All notable changes to this theme will be documented in this file.
 
+## [1.1.0] - 2026-04-17
+
+### Added
+- Custom Hero Decoration feature - replace the default synthwave decorations (sun, city, grid, sky) with:
+  - Custom background image
+  - Custom background video
+  - Custom Twig template (enter filename in theme settings)
+  - No decoration (clean background)
+- Hero Overlay toggle for better text readability with custom media
+- Custom Twig Template field to specify template filename
+
 ## [1.0.0] - 2026-04-10
 
 ### Added
