@@ -136,6 +136,14 @@ Example included: `custom-hero.html.twig`:
 Main synthwave theme templates are `default.html.twig` and `partials/base.html.twig`
 Quark's base templates have been adapted in the `templates/` folder in both normal and modular versions.
 
+## Pages in demo folder
+
+- **History** - Landing page (synthwave genre history)
+- **Theme** - Theme presentation and download links
+- **Grav**  - About Grav CMS (disabled on the demo, kept for reference)
+- **Typography** - Typography showcase
+- **Contact** - Retro cellphone icon - Contact form with retro fax modem header
+
 ## To-Do
 
 - Check the flickering of animation

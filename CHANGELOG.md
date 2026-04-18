@@ -2,6 +2,18 @@
 
 All notable changes to this theme will be documented in this file.
 
+## [1.1.1] - 2026-04-18
+
+### Added
+- Added `_demo/` folder with demo pages and configuration for testing the theme:
+  - Demo pages: Home/History, Theme, Typography, Contact
+  - Theme configuration with custom Twig hero example
+  - System configuration for proper plugin setup
+  - Form plugin configuration
+
+### Changed
+- Updated README with Custom Hero Decoration documentation
+
 ## [1.1.0] - 2026-04-17
 
 ### Added
