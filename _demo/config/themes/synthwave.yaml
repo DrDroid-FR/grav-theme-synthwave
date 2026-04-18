@@ -1,0 +1,14 @@
+enabled: true
+production-mode: true
+site_name: SYNTHWAVE
+hide-play-button: false
+music-file: {  }
+logo_image: false
+logo_image_file: {  }
+enable-ajax: true
+enable-vhs-effect: false
+hero_decoration_type: default
+hero_overlay: true
+hero_decoration_image: {  }
+hero_decoration_video: {  }
+hero_custom_twig: custom-hero.html.twig

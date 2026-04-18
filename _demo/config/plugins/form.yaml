@@ -1,0 +1,9 @@
+enabled: true
+built_in_css: false
+built_in_js: true
+inline_css: true
+inline_js: true
+recaptcha:
+  site_key: ""
+  secret_key: ""
+  theme: light
