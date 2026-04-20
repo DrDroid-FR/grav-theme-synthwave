@@ -2,7 +2,7 @@
 
 ![](screenshot.jpg)
 
-**Synthwave** is a retro 80s inspired neon synthwave theme for Grav CMS (tested on Grav 1.7.40 and 1.8.0-beta.29).
+**Synthwave** is a retro 80s inspired neon synthwave theme for Grav CMS (tested on Grav 1.7.40, 1.8.0-beta.29 and 2.0.0-beta 1).
 
 ## Description
 
@@ -148,10 +148,12 @@ Quark's base templates have been adapted in the `templates/` folder in both norm
 
 - Check the flickering of animation
 - Better VHS effect
+- Compatibilty with Quark 2 templates
 
 ## Requirements
 
 - Grav CMS >=1.6.0 or higher
+- Fully compatible with Grav 2.x
 
 ## Credits
 

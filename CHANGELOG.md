@@ -2,6 +2,17 @@
 
 All notable changes to this theme will be documented in this file.
 
+## [1.2.0] - 2026-04-20
+
+### Added
+- Full compatibility with Grav CMS 2.x
+- Updated templates to use Grav 2.x-compatible Twig syntax and best practices
+- Verified all theme features work correctly on Grav 2.x (AJAX navigation, background music, VHS effects, admin configuration)
+- No breaking changes - theme remains fully backward compatible with Grav 1.6.x+
+
+### Changed
+- Updated package metadata to reflect Grav 2.x support
+
 ## [1.1.1] - 2026-04-18
 
 ### Added

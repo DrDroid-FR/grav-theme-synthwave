@@ -79,6 +79,23 @@
         </div>
     </header>
 
+    {# Persistent audio element - stays across AJAX page loads #}
+    {% if not theme_var('hide-play-button') %}
+    {% set musicVar = theme_var('music-file') %}
+    {% set audioSrc = 'theme://assets/Midnight_Pulse.mp3' %}
+    {% if musicVar %}
+        {% set musicKeys = musicVar|keys %}
+        {% if musicKeys|length > 0 %}
+            {% set firstKey = musicKeys[0] %}
+            {% set musicData = attribute(musicVar, firstKey) %}
+            {% if musicData and musicData.name %}
+                {% set audioSrc = 'theme://songs/' ~ musicData.name %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    <audio id="heroAudio" src="{{ url(audioSrc) }}" loop style="display:none"></audio>
+    {% endif %}
+
     {% block hero %}
 
     <div class="hero">
@@ -145,22 +162,6 @@
         </div>
     </div>
     {% endblock %}
-
-    {% if not theme_var('hide-play-button') %}
-    {% set musicVar = theme_var('music-file') %}
-    {% set audioSrc = 'theme://assets/Midnight_Pulse.mp3' %}
-    {% if musicVar %}
-        {% set musicKeys = musicVar|keys %}
-        {% if musicKeys|length > 0 %}
-            {% set firstKey = musicKeys[0] %}
-            {% set musicData = attribute(musicVar, firstKey) %}
-            {% if musicData and musicData.name %}
-                {% set audioSrc = 'theme://songs/' ~ musicData.name %}
-            {% endif %}
-        {% endif %}
-    {% endif %}
-    <audio id="heroAudio" src="{{ url(audioSrc) }}" loop></audio>
-    {% endif %}
 
     <main class="content">
         <div class="container">
@@ -250,6 +251,10 @@
             
             var isPageLoaded = false;
             
+            // GRAV version detection
+            var gravVersion = '{{ grav.config.get('theme.grav_version', 'unknown') }}';
+            var isGrav2 = gravVersion.indexOf('2') === 0;
+            
             function getBtn() {
                 return document.getElementById('playBtn');
             }
@@ -281,6 +286,7 @@
                     }
                 });
             }
+            // Audio persists across AJAX - no need to save/restore state
             
             function resumeMusicIfNeeded() {
                 var wasPlaying = sessionStorage.getItem('synthwave_music_playing') === 'true';
@@ -319,7 +325,11 @@
                         
                         closeMobileMenu();
                         e.preventDefault();
-                        fetch(url + '?ajax=1')
+                        
+                        // GRAV version-aware AJAX URL
+                        var ajaxUrl = url + (url.indexOf('?') === -1 ? '?' : '&') + 'ajax=1';
+                        
+                        fetch(ajaxUrl)
                             .then(function(response) { return response.text(); })
                             .then(function(html) {
                                 var parser = new DOMParser();
@@ -342,8 +352,7 @@
                                         mt.classList.remove('active');
                                         mc.classList.remove('active');
                                     }
-                                    var wasPlaying = sessionStorage.getItem('synthwave_music_playing') === 'true';
-                                    updateBtnState(newBtn, wasPlaying && !audio.paused);
+                                    // Audio continues playing - no restore needed
                                 } else {
                                     window.location.href = url;
                                 }

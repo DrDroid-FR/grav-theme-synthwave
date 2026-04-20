@@ -114,9 +114,9 @@ Example included: `custom-hero.html.twig`
 
 - **History** - Landing page (synthwave genre history)
 - **Theme** - Theme presentation and download links
-- **Grav**  - About Grav CMS (disabled on the demo, kept for reference)
 - **Typography** - Typography showcase
 - **Contact** - Retro cellphone icon - Contact form with retro fax modem header
+- **Grav**  - About Grav CMS (disabled on the demo, kept for reference)
 
 ## Requirements
 
